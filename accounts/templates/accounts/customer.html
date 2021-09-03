@@ -18,8 +18,8 @@
     <div class="card card-body">
       <h5>Informações do cliente:</h5>
       <hr />
-      <p>Email:</p>
-      <p>Telefone:</p>
+      <p>Email: {{customer.email}}</p>
+      <p>Telefone: {{customer.phone}}</p>
     </div>
   </div>
 
@@ -27,7 +27,7 @@
     <div class="card card-body">
       <h5>Total Pedidos</h5>
       <hr />
-      <h1 style="text-align: center; padding: 10px"></h1>
+      <h1 style="text-align: center; padding: 10px">{{order_count}}</h1>
     </div>
   </div>
 </div>
@@ -54,6 +54,16 @@
           <th>Atualizar</th>
           <th>Excluir</th>
         </tr>
+        {% for order in orders %}
+        <tr>
+          <td>{{order.product}}</td>
+          <td>{{order.product.category}}</td>
+          <td>{{order.product.date_created}}</td>
+          <td>{{order.status}}</td>
+          <td><a class="btn btn-sm btn-info" href="">Atualizar</a></td>
+          <td><a class="btn btn-sm btn-danger" href="">Excluir</a></td>
+        </tr>
+        {% endfor %}
       </table>
     </div>
   </div>

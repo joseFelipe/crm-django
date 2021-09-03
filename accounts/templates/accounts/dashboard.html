@@ -14,6 +14,19 @@
           <th>Cliente</th>
           <th>Pedidos</th>
         </tr>
+        {% for customer in customers %}
+        <tr>
+          <td>
+            <a
+              class="btn btn-sm btn-info"
+              href="{% url 'customer' customer.id %}"
+              >Visualizar</a
+            >
+          </td>
+          <td>{{ customer.name }}</td>
+          <td>{{ customer.phone }}</td>
+        </tr>
+        {% endfor %}
       </table>
     </div>
   </div>
@@ -30,6 +43,15 @@
           <th>Status</th>
           <th>Ações</th>
         </tr>
+        {% for order in orders %}
+        <tr>
+          <td>{{ order.product }}</td>
+          <td>{{ order.date_created }}</td>
+          <td>{{ order.status }}</td>
+          <td><a class="btn btn-sm btn-info" href="">Atualizar</a></td>
+          <td><a class="btn btn-sm btn-danger" href="">Excluir</a></td>
+        </tr>
+        {% endfor %}
       </table>
     </div>
   </div>
