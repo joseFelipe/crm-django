@@ -8,8 +8,10 @@
       <a href="" class="btn btn-outline-info btn-sm btn-block"
         >Atualizar cliente</a
       >
-      <a href="" class="btn btn-outline-danger btn-sm btn-block"
-        >Excluir cliente</a
+      <a
+        href="{% url 'create_order' customer.id %}"
+        class="btn btn-outline-primary btn-sm btn-block"
+        >Fazer um pedido</a
       >
     </div>
   </div>
