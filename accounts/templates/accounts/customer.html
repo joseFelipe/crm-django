@@ -51,8 +51,7 @@
           <th>Categoria</th>
           <th>Data pedido</th>
           <th>Status</th>
-          <th>Atualizar</th>
-          <th>Excluir</th>
+          <th>Ações</th>
         </tr>
         {% for order in orders %}
         <tr>
@@ -60,8 +59,18 @@
           <td>{{order.product.category}}</td>
           <td>{{order.product.date_created}}</td>
           <td>{{order.status}}</td>
-          <td><a class="btn btn-sm btn-info" href="">Atualizar</a></td>
-          <td><a class="btn btn-sm btn-danger" href="">Excluir</a></td>
+          <td>
+            <a
+              class="btn btn-sm btn-info"
+              href="{% url 'update_order' order.id %}"
+              >Atualizar</a
+            >
+            <a
+              class="btn btn-sm btn-danger"
+              href="{% url 'delete_order' order.id %}"
+              >Excluir</a
+            >
+          </td>
         </tr>
         {% endfor %}
       </table>
