@@ -38,6 +38,7 @@
   <div class="col">
     <div class="card card-body">
       <form method="GET">
+        {{ myFilter.form }}
         <button class="btn btn-primary" type="submit">Pesquisar</button>
       </form>
     </div>
@@ -47,12 +48,13 @@
 <div class="row mt-2">
   <div class="col-md">
     <div class="card card-body">
-      <table class="table table-sm">
+      <table class="table table-sm table-orders">
         <tr>
           <th>Produto</th>
           <th>Categoria</th>
           <th>Data pedido</th>
           <th>Status</th>
+          <th>Observação</th>
           <th>Ações</th>
         </tr>
         {% for order in orders %}
@@ -62,16 +64,25 @@
           <td>{{order.product.date_created}}</td>
           <td>{{order.status}}</td>
           <td>
+            <span data-toggle="tooltip" title="{{order.note}}"
+              ><i class="far fa-sticky-note"></i> {{order.note}}</span
+            >
+          </td>
+          <td>
             <a
               class="btn btn-sm btn-info"
               href="{% url 'update_order' order.id %}"
-              >Atualizar</a
-            >
+              data-toggle="tooltip"
+              title="Editar"
+              ><i class="far fa-edit"></i
+            ></a>
             <a
               class="btn btn-sm btn-danger"
               href="{% url 'delete_order' order.id %}"
-              >Excluir</a
-            >
+              data-toggle="tooltip"
+              title="Excluir"
+              ><i class="far fa-trash-alt"></i
+            ></a>
           </td>
         </tr>
         {% endfor %}

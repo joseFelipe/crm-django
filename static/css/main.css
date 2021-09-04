@@ -12,3 +12,12 @@ body {
 #orders-pending {
   background-color: #7cd1c0;
 }
+
+.table-orders span {
+  color: rgb(103, 103, 103);
+  display: block;
+  width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
