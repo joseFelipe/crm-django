@@ -1,8 +1,29 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserCreationForm
 from .models import *
-from .forms import OrderForm
+from .forms import OrderForm, CreateUser
 from django.forms import inlineformset_factory
 from .filters import OrderFilter
+
+
+def registerPage(request):
+    form = CreateUser()
+    print('11')
+    if request.method == 'POST':
+        print('13')
+        form = CreateUser(request.POST)
+        if form.is_valid():
+            print('16')
+            form.save()
+            print('18')
+
+    context = {'form': form}
+    return render(request, 'accounts/register.html', context)
+
+
+def loginPage(request):
+    context = {}
+    return render(request, 'accounts/login.html', context)
 
 
 def home(request):
