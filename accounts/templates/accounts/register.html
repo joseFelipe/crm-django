@@ -54,12 +54,29 @@
           class="btn btn-lg btn-primary btn-block"
           value="Cadastrar"
         />
-        <a
-          href="{% url 'home' %}"
-          class="btn btn-lg btn-secondary btn-block text-white"
-          >Voltar</a
-        >
       </form>
+      {% if form.errors %}
+      <div
+        class="alert alert-danger alert-dismissible fade show mt-3"
+        role="alert"
+      >
+        {{form.errors}}
+        <button
+          type="button"
+          class="close"
+          data-dismiss="alert"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {% endif %}
+    </div>
+
+    <div class="mt-4">
+      <div class="d-flex justify-content-center links">
+        Já tem conta? <a href="{% url 'login' %}" class="ml-2">Login</a>
+      </div>
     </div>
     <script>
       var form_fields = document.getElementsByTagName("input");

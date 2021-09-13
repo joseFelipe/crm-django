@@ -8,14 +8,11 @@ from .filters import OrderFilter
 
 def registerPage(request):
     form = CreateUser()
-    print('11')
     if request.method == 'POST':
-        print('13')
         form = CreateUser(request.POST)
         if form.is_valid():
-            print('16')
             form.save()
-            print('18')
+            return redirect('login')
 
     context = {'form': form}
     return render(request, 'accounts/register.html', context)
