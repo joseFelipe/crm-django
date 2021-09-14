@@ -24,4 +24,14 @@
       </li>
     </ul>
   </div>
+  <span class="text-white mr-2">Olá, {{request.user|title}}</span>
+  <span class="text-white ml-2 mr-3">|</span>
+  <span class="text-white mr-2"
+    ><a
+      class="text-white"
+      href="{% url 'logout' %}"
+      data-toggle="tooltip"
+      title="Sair"
+      ><i class="fas fa-power-off"></i></a
+  ></span>
 </nav>
